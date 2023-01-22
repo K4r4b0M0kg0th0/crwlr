@@ -6,6 +6,7 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+import argparse
 
 nltk.download('stopwords')
 
@@ -20,6 +21,21 @@ auth.set_access_token(access_token, access_token_secret)
 
 # Create API object
 api = tweepy.API(auth)
+
+# Create the parser
+parser = argparse.ArgumentParser(description='Sentiment analysis tool that uses tweets about a specific topic to determine the overall sentiment of people discussing that topic.')
+
+# Add the arguments
+parser.add_argument('topic', type=str, help='The topic to search for')
+parser.add_argument('--num_tweets', type=int, default=100, help='The number of tweets to analyze')
+parser.add_argument('--lang', type=str, default='en', help='The language of the tweets')
+
+# Parse the arguments
+args = parser.parse_args()
+
+topic = args.topic
+num_tweets = args.num_tweets
+lang = args.lang
 
 def get_topic():
     topic = input("Enter the topic you want to search for: ")
@@ -41,9 +57,9 @@ lemmatizer = WordNetLemmatizer()
 stop_words = set(stopwords.words("english"))
 
 # Use Cursor to search for tweets
-for tweet in tweepy.Cursor(api.search_tweets, q=topic).items(100):
+for tweet in tweepy.Cursor(api.search_tweets, q=topic, lang=lang).items(num_tweets):
     # Pre-processing
-    tweet = re.sub(r'[^\w\s]','',tweet.text) #remove punctuation
+    tweet = re.sub(r'@\w+|https?:\/\/\S+', '', tweet.text) #remove punctuation
     tweet = tweet.lower() # lower case
     words = word_tokenize(tweet) # tokenize
     words = [word for word in words if word not in stop_words] # remove stop words
