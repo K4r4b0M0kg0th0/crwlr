@@ -19,7 +19,7 @@ You will need to have Python and the following libraries installed:
 
 Clone the repository and install the required libraries using pip.
 
-- git clone <https://github.com/yourusername/crwlr.git>
+- git clone <https://github.com/K4r4b0M0kg0th0/crwlr>
 - pip install -r requirements.txt
 
 ### Running the tool
