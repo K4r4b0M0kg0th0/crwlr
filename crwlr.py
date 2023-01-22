@@ -21,8 +21,14 @@ auth.set_access_token(access_token, access_token_secret)
 # Create API object
 api = tweepy.API(auth)
 
-# Search for tweets about a specific topic
-topic = "example"
+def get_topic():
+    topic = input("Enter the topic you want to search for: ")
+    if not topic:
+        print("Please enter a valid topic.")
+        return get_topic()
+    return topic
+
+topic = get_topic()
 
 # Initialize the sentiment analyzer
 analyzer = SentimentIntensityAnalyzer()
