@@ -30,15 +30,15 @@ python crwlr.py
 
 ## Built With
 
-* [Python](https://www.python.org/) - The programming language used
-* [tweepy](https://www.tweepy.org/) - An easy-to-use Python library for accessing the Twitter API
-
-[textblob](https://textblob.readthedocs.io/en/dev/) - A Python library for processing textual data
-[nltk](https://www.nltk.org/) - A Python library for natural language processing
-[vaderSentiment](https://github.com/cjhutto/vaderSentiment) - A Python library for sentiment analysis specifically designed for social media text
+- [Python](https://www.python.org/) - The programming language used
+- [tweepy](https://www.tweepy.org/) - An easy-to-use Python library for accessing the Twitter API
+- [textblob](https://textblob.readthedocs.io/en/dev/) - A Python library for processing textual data
+- [nltk](https://www.nltk.org/) - A Python library for natural language processing
+- [vaderSentiment](https://github.com/cjhutto/vaderSentiment) - A Python library for sentiment analysis specifically designed for social media text
 
 ## Authors
-### K4r4b0_M0kg0th0 
+
+### K4r4b0_M0kg0th0
 
 ## License
 
